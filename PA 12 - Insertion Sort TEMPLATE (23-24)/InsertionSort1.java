@@ -29,9 +29,31 @@ public class InsertionSort1
      * @param x  the list of doubles
      * @return a array sorted in increasing order.
      */
-    public static void insertionSort( double [] x)
+    public static void insertionSort( double [] arr)
     {
-         // ADD CODE HERE
+      int key = 0; // indexes
+      double control = 0; // element
+      double temp = 0; // switched element
+      int track = 0;
+
+      for (int i = 1; i < arr.length; i++) {
+        key = i;
+        control = arr[i];
+
+        while (key > 0 && control < arr[key - 1]) {
+          if (control < arr[key - 1]) {
+            temp = arr[key - 1];
+            arr[key] = temp;
+            arr[key - 1] = control;
+            key--;
+            track++;
+
+            System.out.println("Pass " + track + ":");
+            printArray(arr);
+            System.out.println("\n");
+          }
+        }
+      }
     }
    
     /**
